@@ -1,0 +1,39 @@
+/* es codigo de CSS */
+
+/* selector de "etiqueta" */
+/* p {
+        font-size: 40px;
+        font-weight: bold;
+        margin: 20px 20px 0px 30px;
+        background-color: #00695C;
+        display: inline-block;
+        color: rgb(224, 242, 241) !important;
+      } */
+
+/* es una clase de CSS */
+.parrafo {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 20px 20px 0px 30px;
+  background-color: #00695c;
+  display: inline-block;
+  color: rgb(224, 242, 241) !important;
+}
+
+.padding {
+  padding: 40px;
+}
+
+/* selector de ID */
+#principal {
+  text-decoration: underline;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma;
+  font-size: 2rem;
+}
+
+.logo {
+  width: 250px;
+  margin: 1.5rem;
+  filter: blur(2px); /* aplica efectos sobre el elemento */ 
+}
