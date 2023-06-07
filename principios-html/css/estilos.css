@@ -35,5 +35,5 @@
 .logo {
   width: 250px;
   margin: 1.5rem;
-  filter: blur(2px); /* aplica efectos sobre el elemento */ 
+  /* filter: blur(2px); aplica efectos sobre el elemento   */
 }
