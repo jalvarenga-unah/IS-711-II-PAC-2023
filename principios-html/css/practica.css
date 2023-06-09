@@ -1,0 +1,36 @@
+.contenedor-azul {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: rgb(33, 150, 243);
+  /* margin: 0 auto; */
+}
+
+.contenedor-amarillo {
+  background-color: rgb(253, 216, 53);
+}
+
+.margen-25 {
+  margin: 25px;
+}
+
+.titulo {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  margin-top: 25px;  
+}
+
+.texto-justificado {
+  text-align: justify;
+}
+
+.texto-derecha {
+  text-align: right;
+}
+
+.centrar {
+  display: flex;
+  justify-content: center;
+}
