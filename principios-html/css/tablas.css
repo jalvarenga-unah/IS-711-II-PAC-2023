@@ -1,0 +1,46 @@
+table,
+td,
+th {
+  border: 1px solid #242424;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+td {
+  text-align: right;
+}
+
+thead {
+  background-color: #039be5;
+  color: aliceblue;
+}
+
+/* tr {
+  
+} */
+
+/* tr:nth-child(even) {
+  background-color: #b3e5fc;
+} */
+
+tr:hover{
+    background-color: #b3e5fc;
+    cursor: pointer;
+}
+
+/* table > thead > tr > th {
+  border: 1px solid #242424;
+} */
+
+/* th {
+  border: 1px solid #242424;
+}
+
+td {
+  border: 1px solid #242424;
+} */
