@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tablas</title>
-    <link rel="stylesheet" href="./css/tablas.css">
+    <link rel="stylesheet" href="./css/tablas.css" />
   </head>
   <body>
     <h1>Tablas</h1>
@@ -13,33 +13,47 @@
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Telefono</th>
+          <th colspan="4">Datos Generales</th>
         </tr>
-      <!-- </thead> -->
+        <tr>
+          <th colspan="2">Nombre y Correo</th>
+          <!-- <th>Cortreo</h> -->
+          <th>Telefono</th>
+          <th>Carrera</th>
+        </tr>
+      </thead>
 
       <tbody>
         <tr>
           <td>Juan Alvarenga</td>
           <td>jealvarengar@unah.edu.hn</td>
           <td>8888-8888</td>
+          <td rowspan="2">Ing. en Sistemas</td>
         </tr>
 
         <tr>
           <td>Juan perez</td>
           <td>jperez@unah.edu.hn</td>
           <td>8888-9999</td>
+          <!-- <td>Ing. en Sistemas</td> -->
         </tr>
         <tr>
           <td>Juan perez</td>
           <td>jperez@unah.edu.hn</td>
           <td>8888-9999</td>
+          <td rowspan="3">Lic en Contabilidad</td>
         </tr>
         <tr>
           <td>Juan perez</td>
           <td>jperez@unah.edu.hn</td>
           <td>8888-9999</td>
+          
+        </tr>
+        <tr>
+          <td>Juan perez</td>
+          <td>jperez@unah.edu.hn</td>
+          <td>8888-9999</td>
+          
         </tr>
       </tbody>
     </table>
