@@ -6,7 +6,9 @@
     <title>Intro a JS</title>
     <!-- <script src="./js/script.js" ></script> -->
     <!-- <script src="./js/ciclos.js" ></script> -->
-    <script src="./js/funciones.js" ></script>
+    <!-- <script src="./js/funciones.js" ></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    
     <style>
       p {
         font-size: 1.3rem;
@@ -15,5 +17,17 @@
   </head>
   <body>
     <h1>Uso de JS</h1>
+
+    <input type="number" placeholder="ingrese un número" id="n1" />
+    <input type="number" placeholder="ingrese un número" id="n2" />
+
+    <!-- <button onclick="alert('Hola desde el boton')" >Suma</button> -->
+    <button onclick="suma()">Suma</button>
+    
+    <button id="btnResta" >Resta</button>
+
+    <h3 id="resultado"></h3>
+
+    <script src="./js/operaciones.js"></script>
   </body>
 </html>

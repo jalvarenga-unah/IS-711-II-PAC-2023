@@ -47,15 +47,15 @@ const nombre = "Juan Alvarenga";
 // desestructuracion
 // const { nombre: nombreMascota, raza } = infoMascota;
 
-infoMascota['nombre'] = 'nuevo valor'
-delete infoMascota.apodo
+infoMascota["nombre"] = "nuevo valor";
+delete infoMascota.apodo;
 
-let nombreMascota = infoMascota.nombre
-let raza = infoMascota.raza
+let nombreMascota = infoMascota.nombre;
+let raza = infoMascota.raza;
 
 const lista = [1, 2, 3, 4, 5];
 
-raza = 'Poddole'
+raza = "Poddole";
 
 const [n1, ...resto] = lista;
 
@@ -69,3 +69,19 @@ console.log(infoMascota);
 // mascota(infoMascota);
 
 // saludo();
+
+const calcularArea = ({ d, y, a, b, c = 1 }) => {
+  return a * c;
+};
+
+const calcularArea2 = (data) => {
+  let { a, c } = data;
+  return a * c;
+};
+
+const infoArea = {
+  a: 2,
+  c: 5,
+};
+
+console.log(calcularArea2(infoArea));
