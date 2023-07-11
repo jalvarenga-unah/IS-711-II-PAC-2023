@@ -83,4 +83,5 @@ function encontrarDuplicados(numeros) {
 
 const duplicados = encontrarDuplicados(numeros);
 
-console.log(duplicados);
+console.log("original:", numeros);
+console.log("duplicados:", duplicados);
