@@ -26,8 +26,9 @@ const resolviendoTarea = async () => {
     alert(error);
   }
 };
-
-resolviendoTarea();
+console.log("iniciando la promesa");
+resolviendoTarea2();
+console.log("promesa finalizada");
 // !esto no se puede hacer:
 // await miPromesa()
 
