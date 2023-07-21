@@ -18,6 +18,9 @@
 
 // funcion para obtener los productos de forma asincrona
 
+// const loader = document.getElementById("loader");
+const loader = document.getElementsByClassName("loader")[0];
+
 const getAllProducts = async () => {
   try {
     const respuesta = await fetch("https://fakestoreapi.com/products"); // => miPromesa()
@@ -30,15 +33,35 @@ const getAllProducts = async () => {
     const productos = await respuesta.json();
 
     const lista = document.getElementById("listaProductos");
-    let contenidoLista = ''
+    let contenidoLista = "";
 
     productos.map((producto) => {
-      const { id, title } = producto;
-      contenidoLista += `<li class=''>${id} - ${title}</li>`
-    })
+      const { id, title,image, description } = producto;
+      // contenidoLista += `<li class='list-group-item'>${id} - ${title}</li>`;
 
-    lista.innerHTML = contenidoLista
-    // const ol = document.createElement("ul");
+      const newDescription = description.substring(0, 100);
+
+      contenidoLista += `
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="${image}" class="card-img-top" style='height:200px!important; object-fit: scale-down' alt="${title}">
+          <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">${newDescription}</p>
+            <button onClick='verDetalle(${id})' class="btn btn-primary">Ver mas</button>
+          </div>
+        </div>
+      </div>
+     `;
+    });
+    console.log(contenidoLista);
+
+    //ocultar le lodaer
+    // loader. classList.add('hidden')
+    loader.style.display = "none";
+
+    lista.innerHTML = contenidoLista;
+    // const ul = document.createElement("ul");
 
     // productos.map((producto) => {
     //   const { id, title } = producto;
@@ -46,12 +69,9 @@ const getAllProducts = async () => {
     //   const li = document.createElement("li");
     //   li.innerText = `${id} - ${title}`;
 
-    //   ol.appendChild(li);
+    //   ul.appendChild(li);
     // });
-    // document.body.appendChild(ol);
-
-
-
+    // document.body.appendChild(ul);
   } catch (error) {
     console.log(error);
   }
@@ -74,3 +94,26 @@ const getProductById = async (id = "") => {
     console.log(error);
   }
 };
+
+
+function verDetalle(id){
+
+  //redigir a la pagina de detalle
+  // window.location.href = `detalle.html?id=${id}`
+  
+  
+  //almancenamiento local
+  //setItem: crea una nueva llave con un valor
+  localStorage.setItem('id', id)        //es persistente, mantengo la informacion aunque cierre el navegador
+
+  //getItem: obtiene el valor de una llave
+  // localStorage.getItem('id')
+
+  // localStorage.removeItem('id')        //elimina la llave
+
+  sessionStorage.setItem('id', id)      //es temporal, se borra cuando se cierra el navegador
+
+  window.location.href = `detalle.html`
+
+
+}
