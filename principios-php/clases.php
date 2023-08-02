@@ -22,17 +22,31 @@ class Heroe
     // }
 
     // Metodos
-    public function getNombre(): string
+    public function getNombre(): string | int
     {
-        return $this->nombre;
+        return 12;
+    }
+
+    public function setNombre(string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function getInfo(): string
+    {
+        return "El heroe {$this->nombre} tiene el poder '{$this->poder}' ";
     }
 
 } // finaliza la clase "Heroe"
 
-$heroe = new Heroe("Batman", "Dinero");
-
 // $heroe = null;
-
-echo $heroe->getNombre();
 // $heroe->nombre = 'Batman';
 // $heroe->poder = 'Dinero';
+
+// $heroe = new Heroe("Batman", "Dinero");
+// $heroe = new Heroe($_GET["nombre"], $_GET["poder"] ?? 'No tiene poder');
+$heroe = new Heroe($_POST["nombre"], $_POST["poder"] ?? 'No tiene poder');
+
+// var_dump($_GET);
+
+echo $heroe->getInfo();
