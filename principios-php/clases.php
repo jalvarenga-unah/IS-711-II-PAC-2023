@@ -22,7 +22,7 @@ class Heroe
     // }
 
     // Metodos
-    public function getNombre(): string | int
+    public function getNombre(): string|int
     {
         return 12;
     }
@@ -44,8 +44,21 @@ class Heroe
 // $heroe->poder = 'Dinero';
 
 // $heroe = new Heroe("Batman", "Dinero");
+
+// Recibiendo los parametros por GET
 // $heroe = new Heroe($_GET["nombre"], $_GET["poder"] ?? 'No tiene poder');
-$heroe = new Heroe($_POST["nombre"], $_POST["poder"] ?? 'No tiene poder');
+
+// Recibiendo los parametros por POST
+// $heroe = new Heroe($_POST["nombre"], $_POST["poder"] ?? 'No tiene poder');
+
+
+// Recibiendo los parametros por Raw Json
+
+//creamos una nueva variable, que seria un arreglo asociativo
+//con los valores enviados en el JSON
+$data = json_decode(file_get_contents('php://input'), true);
+
+$heroe = new Heroe($data['nombre'], $data['poder'] ?? 'No tiene poder');
 
 // var_dump($_GET);
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="form">
+
+        <input type="text" name="nombre" placeholder="Ingrese el nombre del heroe">
+        <input type="text" name="poder" placeholder="ingrese su poder">
+
+        <button>Enviar la info</button>
+    </form>
+
+    <script>
+
+        const form = document.querySelector('#form');
+        // const form = document.getElementById('form');
+
+        form.addEventListener('submit', (e) => {
+
+            //evita que se salga de la pagina en la que me encuentro
+            e.preventDefault()
+
+            //Metodo 1: envio de un formData, a traves de las variables $_POST
+            const data = new FormData(form)
+            // fetch('clases.php', {
+            //     method: 'POST', //por defecto, hace un GET
+            //     body: data
+            // }).then(r => {
+            //     return r.text()
+            // }).then(data => {
+            //     // document.body.append(data)
+            //     console.log(data)
+            // })
+
+            //Metodo 2: construir un Json, y enviarlo
+            // por medio del body como un raw json
+
+            // construir el objeto
+            const data2 = {}
+
+            //crear una lista con las entradas, para iterarlo
+            const lista = [...data.entries()]
+            
+            //llenar el objeto "data2" con las claves necesarias
+            lista.forEach(([key, value]) => {
+                data2[key] = value
+            })
+            
+            fetch('clases.php', {
+                method: 'POST', //por defecto, hace un GET
+                body:  JSON.stringify(data2) // se envia el objeto como un json
+            }).then(r => {
+                return r.text()
+            }).then(respuesta => {
+                // document.body.append(data)
+                console.log(respuesta)
+            })
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
