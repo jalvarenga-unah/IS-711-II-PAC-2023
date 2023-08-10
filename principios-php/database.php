@@ -1,5 +1,5 @@
 <?php
-
+header("Content-Type: application/json; charset=UTF-8");
 /**
  * LISTA DE CODIGOS
  * 
@@ -18,7 +18,7 @@ class Database
     private $user = "root";
     private $password = "root";
 
-    public $connection;
+    private $connection;
 
     function __construct()
     {
@@ -35,8 +35,6 @@ class Database
                 PDO::ERRMODE_EXCEPTION
             );
 
-            echo "conexión exitosa";
-
         } catch (PDOException $exception) {
             header("HTTP/1.1 500 Internal Server Error");
             die("Connection error: " . $exception->getMessage());
@@ -50,6 +48,40 @@ class Database
         $this->connection = null;
     }
 
+    function getConnection()
+    {
+        return $this->connection;
+    }
+
+    function response($ok, $data, $message, $code = 200)
+    {
+        header("HTTP/1.1 $code");
+        return json_encode([
+            "ok" => $ok,
+            "message" => $message,
+            "data" => $data
+        ]);
+    }
+
 } // fin de la clase de conexión
 
 $db = new Database();
+$con = $db->getConnection();
+
+//SELECT
+
+$query = "SELECT * FROM country where Code = :codigo ";
+//prepara la consulta SQL
+$statement = $con->prepare($query);
+
+// *por defecto es String, pero se puede especificar el tipo de dato
+// *enviando como tercer parametro, un tipo desde PDO::PARAM_{TIPO_DATO}
+$statement->bindParam("codigo", $_GET["codigo"]);
+
+//ejecuta la consulta SQL
+$statement->execute();
+
+//arreglo asociativo del resultado de la consulta
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+echo $db->response(true, $result, "Consulta exitosa");
