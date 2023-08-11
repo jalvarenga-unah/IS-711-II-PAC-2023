@@ -65,23 +65,23 @@ class Database
 
 } // fin de la clase de conexión
 
-$db = new Database();
-$con = $db->getConnection();
+// $db = new Database();
+// $con = $db->getConnection();
 
 //SELECT
 
-$query = "SELECT * FROM country where Code = :codigo ";
-//prepara la consulta SQL
-$statement = $con->prepare($query);
+// $query = "SELECT * FROM country where Code = :codigo ";
+// //prepara la consulta SQL
+// $statement = $con->prepare($query);
 
-// *por defecto es String, pero se puede especificar el tipo de dato
-// *enviando como tercer parametro, un tipo desde PDO::PARAM_{TIPO_DATO}
-$statement->bindParam("codigo", $_GET["codigo"]);
+// // *por defecto es String, pero se puede especificar el tipo de dato
+// // *enviando como tercer parametro, un tipo desde PDO::PARAM_{TIPO_DATO}
+// $statement->bindParam("codigo", $_GET["codigo"]);
 
-//ejecuta la consulta SQL
-$statement->execute();
+// //ejecuta la consulta SQL
+// $statement->execute();
 
-//arreglo asociativo del resultado de la consulta
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+// //arreglo asociativo del resultado de la consulta
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-echo $db->response(true, $result, "Consulta exitosa");
+// echo $db->response(true, $result, "Consulta exitosa");
